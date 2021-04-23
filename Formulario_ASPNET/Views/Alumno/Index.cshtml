@@ -1,0 +1,82 @@
+﻿@model List<Formulario_ASPNET.Models.Alumno>
+@{
+    ViewBag.Title = "Alumno";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h4>Gestión de alumnos</h4>
+<div class="alert alert-@ViewBag.alerta"> - - <b>@ViewBag.res</b> - - </div>
+    <form action="/Alumno/Index" method="post">
+        <table>
+            <tr>
+                <td style="padding: 10px">Dni:</td>
+                <td style="padding: 10px">
+                    <input class="form-control" maxlength="8" type="text" name="dni" id="dni" value="" required />
+                </td>
+            </tr>
+
+            <tr>
+                <td style="padding: 10px">Nombre:</td>
+                <td style="padding: 10px">
+                    <input class="form-control" type="text" name="nombre" id="nombre" value="" required />
+                </td>
+            </tr>
+
+            <tr>
+                <td style="padding: 10px">Apellido:</td>
+                <td style="padding: 10px">
+                    <input class="form-control" type="text" name="apellido" id="apellido" value="" required />
+                </td>
+            </tr>
+
+            <tr>
+                <td style="padding: 10px"></td>
+                <td style="padding: 10px">
+                    <button class"btn btn-success" type="submit" name="btn1"><span class="glyphicon glyphicon-save">Agregar</span></button>
+                    <button class"btn btn-primary" type="reset" name="btn2"><span class="glyphicon glyphicon-remove">Resetear</span></button>
+                    <a class"btn btn-danger" href="~/Seccion/Index">
+                        <span class="glyphicon glyphicon-backward">Volver</span>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </form>
+<br />
+<br />
+<table id="tabla_alumno" class="table table-bordered">
+    <thead style="background-color: black; color:white">
+        <tr>
+            <th>Codigos</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>DNI</th>
+            <th style="text-align: center">Mantenimiento</th>
+        </tr>
+    </thead>
+
+    <tbody style="background-color: white">
+        @foreach (var f in Model)
+        {
+            <tr>
+                <td>@f.id_alu </td>
+                <td>@f.nombre_alu</td>
+                <td>@f.apellidos_alu</td>
+                <td>@f.dni_alu</td>
+
+                <td style="text-align:center">
+                    <button class="btn btn-warning" id="btn_act" onclick="location.href='../Alumno/Actualizar?id=@f.id_alu'">
+                        <span class="glyphicon glyphicon-edit">Actualizar</span>
+                    </button>
+
+                    <button class="btn btn-danger" id="btn_eli" onclick="location.href='../Alumno/Eliminar?id=@f.id_alu'">
+                        <span class="glyphicon glyphicon-trash">Eliminar</span>
+                    </button>.
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+

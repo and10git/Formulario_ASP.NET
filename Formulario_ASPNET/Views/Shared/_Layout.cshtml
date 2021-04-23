@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+</head>
+<body style="background-color: gray">
+    <header style="background-color:black; color: white; text-align:center">
+        <br />
+        <h3>ADMINISTRACIÓN DE ALUMNOS</h3>
+        <br />
+    </header>
+
+    <nav class="row" style="background-color: gray; height: 40px; margin:1px 1px 1px 1px">
+        <div class="btn-group">
+            <button class="btn-primary" onclick="location.href = '..Seccion/Index'">Seccion</button>
+            <button class="btn-primary" onclick="location.href = '..Alumno/Index'">Alumno</button>
+        </div>
+    </nav>
+
+    <main class="row" style="margin: 2% 2% 2% 2%; background-color: beige; width: 96%">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </main>
+</body>
+</html>
