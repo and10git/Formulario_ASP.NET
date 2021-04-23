@@ -61,7 +61,7 @@ namespace Formulario_ASPNET.Models
             bool estado = false;
             string cadena = "'" + dni + "',";
             cadena += "'" + nombre + "',";
-            cadena += "'" + apellido + "',";
+            cadena += "'" + apellido + "'";
 
             try
             {
